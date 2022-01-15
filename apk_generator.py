@@ -51,7 +51,7 @@ def check_external_tool_dependencies():
     Zipalign()
 
 
-def perform_obfuscation(
+def perform_patching(
         input_apk_path: str,
         feature_patch_path: str,
         working_dir_path: str = None,
@@ -188,4 +188,4 @@ if __name__ == '__main__':
 
     work_path = '/tmp/obf_working/' + str(time.time())
     with multiprocessing.Pool(processes=number) as pool:
-        pool.starmap(perform_obfuscation, zip(file_list, repeat(feature_file), repeat(work_path), repeat(output)))
+        pool.starmap(perform_patching, zip(file_list, repeat(feature_file), repeat(work_path), repeat(output)))
